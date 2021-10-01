@@ -1,0 +1,120 @@
+{
+	"info": {
+		"_postman_id": "ff95306a-c113-4f96-9744-be6cca091122",
+		"name": "basic-authentication",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "public resource",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{WEB_HOST}}/api/greeting",
+					"protocol": "http",
+					"host": [
+						"{{WEB_HOST}}"
+					],
+					"path": [
+						"api",
+						"greeting"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "protected resource with Authorization header",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic dXNlcjo5YzAyNTM5NS01ZDg4LTQ2MTAtYmVmNS1iYjY5NDk3NThlMGM=",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{WEB_HOST}}/api/employees",
+					"protocol": "http",
+					"host": [
+						"{{WEB_HOST}}"
+					],
+					"path": [
+						"api",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "protected resource",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "9c025395-5d88-4610-bef5-bb6949758e0c",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic dXNlcjo5YzAyNTM5NS01ZDg4LTQ2MTAtYmVmNS1iYjY5NDk3NThlMGM=",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://{{WEB_HOST}}/api/employees",
+					"protocol": "http",
+					"host": [
+						"{{WEB_HOST}}"
+					],
+					"path": [
+						"api",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "WEB_HOST",
+			"value": "localhost:8081"
+		}
+	]
+}
