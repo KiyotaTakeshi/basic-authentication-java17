@@ -75,9 +75,16 @@ curl --location --request GET 'http://localhost:8081/api/employees' \
 
 ## check redis cache
 
-
 ```shell
 $ docker compose exec redis bash -c redis-cli
+
+127.0.0.1:6379> keys *
+1) "spring:session:expirations:1634997000000"
+2) "spring:session:index:org.springframework.session.FindByIndexNameSessionRepository.PRINCIPAL_NAME_INDEX_NAME:user"
+3) "spring:session:sessions:expires:a0ccad70-6206-41f8-b71d-11fcbc72cd84"
+4) "spring:session:sessions:a0ccad70-6206-41f8-b71d-11fcbc72cd84"
+5) "spring:session:expirations:1634997960000"
+127.0.0.1:6379> 
 ```
 
 ---
