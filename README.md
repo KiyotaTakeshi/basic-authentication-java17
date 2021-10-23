@@ -2,6 +2,8 @@
 
 ## Run Application
 
+### Prepare
+
 - Check JDK version
 
 ```shell
@@ -11,6 +13,17 @@ $ java -version
 openjdk version "17" 2021-09-14 LTS
 OpenJDK Runtime Environment Corretto-17.0.0.35.2 (build 17+35-LTS)
 OpenJDK 64-Bit Server VM Corretto-17.0.0.35.2 (build 17+35-LTS, mixed mode, sharing)
+```
+
+- Run redis
+
+```shell
+docker compose up -d
+
+# connect to redis and check keys 
+$ docker compose exec redis bash -c redis-cli
+127.0.0.1:6379> keys *
+(empty array)
 ```
 
 - Build
@@ -60,6 +73,14 @@ curl --location --request GET 'http://localhost:8081/api/employees' \
 --header 'Authorization: Basic dXNlcjo5YzAyNTM5NS01ZDg4LTQ2MTAtYmVmNS1iYjY5NDk3NThlMGM='
 ```
 
+## check redis cache
+
+
+```shell
+$ docker compose exec redis bash -c redis-cli
+```
+
+---
 ## Adventure about the substance of cookies
 
 access [localhost:8081/api/employees](http://localhost:8081/api/employees), cookie generated after success to login
