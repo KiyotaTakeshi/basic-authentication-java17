@@ -52,6 +52,7 @@ public class SessionTest {
         return "http://localhost:" + port + "/api/employees";
     }
 
+    // @see https://www.testcontainers.org/quickstart/junit_5_quickstart/
     // 08:51:44.954 [main] DEBUG 🐳 [redis:6.2.6-alpine] - Starting container: redis:6.2.6-alpine
     // 08:51:44.954 [main] INFO 🐳 [redis:6.2.6-alpine] - Creating container for image: redis:6.2.6-alpine
     // 08:51:44.989 [main] INFO 🐳 [redis:6.2.6-alpine] - Starting container with ID: 110caefe02be8e2b70e54447126d32e550ba9d9306a4c27032edd8bb6bac2382

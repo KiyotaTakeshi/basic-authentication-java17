@@ -6,3 +6,9 @@ services:
       - "6379:6379"
     volumes:
       - "./data/redis:/data"
+#  nginx:
+#    container_name: nginx-lb
+#    build: ./nginx
+#    image: nginx-lb
+#    ports:
+#      - 80:80

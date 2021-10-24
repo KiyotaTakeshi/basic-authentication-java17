@@ -88,6 +88,31 @@ $ docker compose exec redis bash -c redis-cli
 ```
 
 ---
+## Test behind nginx
+
+```shell
+./mvnw clean package
+
+# run 3 application server with different port
+java -jar target/basic-authentication-0.0.1-SNAPSHOT.jar
+
+export SERVER_PORT=8082 && java -jar target/basic-authentication-0.0.1-SNAPSHOT.jar
+
+export SERVER_PORT=8083 && java -jar target/basic-authentication-0.0.1-SNAPSHOT.jar
+```
+
+- comment-out [docker-compose.yaml "nginx" section](./docker-compose.yaml)
+
+```shell
+# build image and run nginx container
+docker compose up -d --build
+```
+
+you need to access first application server directory([localhost:8081/api/employees](localhost:8081/api/employees)) and log in.  
+
+after that, you can access via nginx behind three application server.
+
+---
 ## Adventure about the substance of cookies
 
 access [localhost:8081/api/employees](http://localhost:8081/api/employees), cookie generated after success to login
